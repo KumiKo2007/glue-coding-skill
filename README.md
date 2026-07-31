@@ -1,31 +1,101 @@
-# Glue Coding Skill
+<p align="center">
+  <strong>README</strong> ·
+  <a href="CODE_OF_CONDUCT.md">Code of conduct</a> ·
+  <a href="CONTRIBUTING.md">Contributing</a> ·
+  <a href="LICENSE">MIT license</a> ·
+  <a href="SECURITY.md">Security</a>
+</p>
 
-Build with leverage, not reinvention.
+<p align="center">
+  <a href="README.md"><strong>English</strong></a> ·
+  <a href="README.zh-CN.md">中文</a> ·
+  <a href="README.ja.md">日本語</a> ·
+  <a href="README.ko.md">한국어</a>
+</p>
 
-`glue-coding` is a single-file Codex skill for AI-assisted engineering. It teaches the agent to stop inventing core systems from scratch, search for mature capabilities first, and write only the thin integration layer that turns those capabilities into a working business flow.
+<p align="center">
+  <span style="font-size:48px">🧩</span>
+</p>
 
-Use it when vibe coding starts to feel too magical: APIs appear from nowhere, frameworks get rebuilt accidentally, and "just one wrapper" quietly becomes a private platform.
+<h1 align="center">glue-coding-skill: Build With Leverage, Not Reinvention</h1>
 
-## The idea
+<p align="center"><strong>A Codex skill for AI coding workflows: reuse mature capabilities, write thin glue code, add quality gates, and leave a replacement path.</strong></p>
 
-Modern AI coding is strongest when it connects proven pieces well. This skill gives Codex a small but stubborn engineering instinct:
+<hr />
+
+<p align="center">
+  <a href="LICENSE"><img alt="License MIT" src="https://img.shields.io/badge/license-MIT-2ea44f?style=for-the-badge"></a>
+  <img alt="Codex Skill" src="https://img.shields.io/badge/Codex-Skill-111827?style=for-the-badge">
+  <img alt="AI Coding" src="https://img.shields.io/badge/AI%20Coding-Workflow-2563eb?style=for-the-badge">
+  <img alt="Languages" src="https://img.shields.io/badge/Languages-EN%20%7C%20ZH%20%7C%20JA%20%7C%20KO-f59e0b?style=for-the-badge">
+</p>
+
+<p align="center">
+  <a href="#why-this-skill-exists"><img alt="Why" src="https://img.shields.io/badge/why-this%20exists-374151"></a>
+  <a href="#what-it-does"><img alt="What it does" src="https://img.shields.io/badge/what-it%20does-7c3aed"></a>
+  <a href="#install"><img alt="Install" src="https://img.shields.io/badge/install-0ea5e9"></a>
+  <a href="#example-prompts"><img alt="Prompts" src="https://img.shields.io/badge/example-prompts-dc2626"></a>
+  <a href="SKILL.md"><img alt="Skill" src="https://img.shields.io/badge/SKILL.md-open-111827"></a>
+</p>
+
+<p align="center">
+  <a href="#mature-capability-first"><img alt="Mature capability first" src="https://img.shields.io/badge/mature--capability-first-16a34a"></a>
+  <a href="#thin-glue-layer"><img alt="Thin glue layer" src="https://img.shields.io/badge/thin-glue%20layer-0891b2"></a>
+  <a href="#quality-gates"><img alt="Quality gates" src="https://img.shields.io/badge/quality-gates-9333ea"></a>
+  <a href="#replacement-path"><img alt="Replacement path" src="https://img.shields.io/badge/replacement-path-f97316"></a>
+</p>
+
+<p align="center">
+  <a href="README.zh-CN.md">中文介绍</a> ·
+  <a href="README.ja.md">日本語紹介</a> ·
+  <a href="README.ko.md">한국어 소개</a>
+</p>
+
+## Why this skill exists
+
+AI can write a lot of code very quickly. That is useful, but it also makes it easy to accidentally rebuild authentication, queues, schedulers, SDK wrappers, logging systems, storage layers, or private platforms.
+
+`glue-coding` gives Codex a simple engineering instinct:
 
 > Mature capabilities solve common problems. Glue code connects business flows. Custom core code is the exception, not the default.
 
-## What it helps with
+## What it does
 
-- Choosing SDKs, APIs, frameworks, and managed services before custom code
-- Drawing a clean boundary between domain logic and integration glue
-- Avoiding the classic trap of rebuilding auth, queues, billing, logging, or wrappers
-- Turning the first working version into a smaller, more maintainable one
-- Asking for a replacement or rollback path before the design feels "done"
+This skill guides Codex to:
 
-## What is inside
+- search for official SDKs, APIs, frameworks, managed services, and stable open-source tools first
+- draw a clean boundary between domain logic and integration details
+- keep custom code short, testable, observable, reversible, and easy to delete
+- add quality gates before accepting an integration as done
+- explain why custom core code is necessary when reuse is not enough
 
-- [`SKILL.md`](SKILL.md): the complete skill, ready to copy or clone
-- A mature capability checklist for evaluating reuse options
-- A recursive refinement loop for shrinking unnecessary custom code
-- Practical guardrails for SDKs, APIs, queues, auth, logging, storage, and AI wrappers
+## Core loop
+
+```text
+Intent -> Mature capability search -> Option evaluation -> Boundary design
+       -> Thin glue layer -> Quality gates -> Replacement or rollback path
+       -> Recursive refinement
+```
+
+## Mature capability first
+
+Before writing custom code, Codex should ask:
+
+1. Does an official or well-maintained capability already solve this?
+2. Is the cost, risk, license, and operational burden acceptable?
+3. Can the business logic stay clean if this dependency changes?
+
+## Thin glue layer
+
+Good glue code adapts, orchestrates, validates, and isolates. It should not quietly become a second framework.
+
+## Quality gates
+
+The skill pushes for tests, schema checks, error handling, retries, observability, and clear acceptance criteria around integration points.
+
+## Replacement path
+
+Every external dependency should have a known replacement, rollback, or deletion story. If the dependency fails, the business model should not be trapped inside it.
 
 ## Install
 
@@ -47,27 +117,21 @@ Use $glue-coding to design this feature with mature capabilities first.
 
 - "Use glue-coding to decide whether we should wrap this SDK or write our own integration layer."
 - "Use glue-coding to review this feature and tell me what should be reused instead of rebuilt."
-- "Use glue-coding to refactor this module so the business logic stays clean and the integration is thin."
+- "Use glue-coding to refactor this module so business logic stays clean and the integration stays thin."
 - "Use glue-coding to find the smallest replaceable implementation for this workflow."
 
 ## Good fit
 
-- Feature planning
-- Architecture review
-- Refactoring AI-generated code
+- feature planning
+- architecture review
+- refactoring AI-generated code
 - API and SDK integration
-- Workflow orchestration
-- Deciding whether to build, buy, wrap, or delete
+- workflow orchestration
+- deciding whether to build, buy, wrap, or delete
 
 ## Not the goal
 
-This skill is not a low-code manifesto and it is not anti-custom-code. It is a bias toward engineering leverage. When custom code is truly the right choice, the skill asks the agent to name the reason, define the boundary, and leave a future replacement path.
-
-## Why this skill exists
-
-Most coding time is not spent inventing new primitives. It is spent connecting proven ones without letting the glue become a second product. This skill keeps that work explicit and repeatable, especially when AI can write a lot of code very quickly.
-
-If your AI coding sessions often produce too much code, too many homemade abstractions, or suspiciously confident integrations, this skill is meant to add a little engineering gravity.
+This is not anti-custom-code. It is a bias toward engineering leverage. When custom code is truly the right choice, the skill asks Codex to name the reason, define the boundary, and leave a future replacement path.
 
 ## License
 
